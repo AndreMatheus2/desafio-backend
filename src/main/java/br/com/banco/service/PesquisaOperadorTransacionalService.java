@@ -25,6 +25,7 @@ public class PesquisaOperadorTransacionalService {
     }
 
     public List<Transferencia> findByDataTransferencia(Transferencia transferencia){
-        return transferenciaRepository.findAll();
+        List<Transferencia> list = transferenciaRepository.findAll();
+        return list;
     }
 }
