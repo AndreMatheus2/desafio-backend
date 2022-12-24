@@ -1,13 +1,15 @@
 package br.com.banco.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "transferencia")
 public class Transferencia implements Serializable {
@@ -29,21 +31,7 @@ public class Transferencia implements Serializable {
     @Column(name = "nome_operador_transacao")
     private String operadorTransacao;
 
-
     @Column(name = "conta_id")
     private Long contaId;
 
-    /**
-     * Constructors*/
-    public Transferencia(){
-    }
-
-    public Transferencia(Long idTransferencia, Date dataTransferencia, Double valor, String tipo, String operadorTransacao, Long contaId) {
-        this.idTransferencia = idTransferencia;
-        this.dataTransferencia = dataTransferencia;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.operadorTransacao = operadorTransacao;
-        this.contaId = contaId;
-    }
 }
