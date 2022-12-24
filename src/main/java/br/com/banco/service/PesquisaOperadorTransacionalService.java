@@ -1,14 +1,13 @@
 package br.com.banco.service;
 
 import br.com.banco.controller.PesquisaOperadorTransacionalController;
-import br.com.banco.dto.ContaDTO;
-import br.com.banco.dto.TransferenciaDTO;
-import br.com.banco.model.Conta;
+import br.com.banco.model.Transferencia;
 import br.com.banco.repositories.ContaRepository;
 import br.com.banco.repositories.TransferenciaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,8 +19,12 @@ public class PesquisaOperadorTransacionalService {
     private TransferenciaRepository transferenciaRepository;
     @Autowired
     PesquisaOperadorTransacionalController controller;
-    public TransferenciaDTO findByNomeOperadorTransacao(TransferenciaDTO transferenciaDTO) {
-        Optional<TransferenciaDTO> transferencia = transferenciaRepository.findByNomeOperadorTransacao(transferenciaDTO.getNomeOperadorTransacao());
-        return transferencia.get();
+    public Transferencia findByNomeOperadorTransacao(Transferencia transferencia) {
+        Optional<Transferencia> transferenciaOptional = transferenciaRepository.findByNomeOperadorTransacao(transferencia.getNomeOperadorTransacao());
+        return transferenciaOptional.get();
+    }
+
+    public List<Transferencia> findByDataTransferencia(Transferencia transferencia){
+        return transferenciaRepository.findAll();
     }
 }

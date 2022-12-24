@@ -5,20 +5,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transferencia {
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private LocalDate dataTransferencia;
+    private Date dataTransferencia;
     private Double valor;
     private String tipo;
     private String nomeOperadorTransacao;
-    @Column(name = "conta_id")
-    private Conta contaId;
+
+    private Integer contaId;
     private String nomeOperadorTransferencia;
 
 }
