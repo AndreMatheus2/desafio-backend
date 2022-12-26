@@ -25,7 +25,7 @@ public class TransferenciaService {
         return  repository.findByOperadorTransacao(operadorTransacao);
     }
 
-    public List<Transferencia> buscarPeriodo(LocalDateTime dateInicio, LocalDateTime dateFim) {
-        return repository.buscaPorPeriodoDeDatas(dateInicio, dateFim);
+    public List<Transferencia> buscarPeriodo(LocalDateTime dataInicio, LocalDateTime dataFim) {
+        return repository.buscaPorPeriodoDeDatas(dataInicio, dataFim);
     }
 }

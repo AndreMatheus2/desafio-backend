@@ -12,6 +12,7 @@ public interface TransferenciaRepository extends JpaRepository<Transferencia, Lo
     public List<Transferencia> findByOperadorTransacao(String operadorTransacao);
 
 
-    @Query(value="SELECT * FROM TRANSFERENCIA WHERE DATA_TRANSFERENCIA BETWEEN dataInicio AND dataFim", nativeQuery=true)
+    // @Query(value="SELECT * FROM TRANSFERENCIA WHERE DATA_TRANSFERENCIA BETWEEN dataInicio AND dataFim", nativeQuery=true)
+    @Query(value="select * from Transferencia tr where tr.data_transferencia >= :dataInicio And tr.data_transferencia <= :dataFim", nativeQuery=true)
     public List<Transferencia> buscaPorPeriodoDeDatas(LocalDateTime dataInicio, LocalDateTime dataFim);
 }
